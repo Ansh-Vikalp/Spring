@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Write Code for Spring beans.xml file ?-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--Setter()
+    based Injection by IOC Container-->
+    <bean id="address" class="com.wipro.bean.Address">
+        <!-- Intializing object parameter-->
+        <property name="street" value="Pritech park"></property>
+        <property name="city" value="Bengaluru"></property>
+        <property name="pincode" value="560037"></property>
+    </bean>
+
+    <!-- Auto Wiring byName matching SEtter Injection-->
+    <bean id="employeeBean" class="com.wipro.bean.Employee" autowire="byName">
+        <!-- Intializing object parameter-->
+        <property name="name" value="Ansh Vikalp"></property>
+        <property name="empId" value="2000123"></property>
+        <!-- addressBean Object injected as setter() value to the EmployeeBean object-->
+
+    </bean>
+
+
+</beans>

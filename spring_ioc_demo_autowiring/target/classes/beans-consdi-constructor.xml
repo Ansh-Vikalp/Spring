@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Wrie Code for Spring beans.xml file? -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--Constructor()
+    based Injection by IOC Container-->
+
+    <!-- Define bean for our Address bean -->
+    <bean id="addressBean" class="com.wipro.bean.Address">
+        <!-- Initializing object Parameter-->
+        <constructor-arg index="0" type="java.lang.String" value="DB City park" />
+        <constructor-arg index="1" type="java.lang.String" value="Bhopal" />
+        <constructor-arg index="2" type="java.lang.String" value="462004" />
+
+    </bean>
+
+    <bean id="employeeBean" class="com.wipro.bean.Employee" autowire="constructor">
+        <!--<constructor-arg>-->
+        <!-- Initializing object Parameter-->
+        <constructor-arg index="0" type="java.lang.String" value="Manik"></constructor-arg>
+        <constructor-arg index="1" type="java.lang.String" value="200124"></constructor-arg>
+        <!-- addressBean Object injected as constructor() value to the EmployeeBean object-->
+
+    </bean>
+
+</beans>
