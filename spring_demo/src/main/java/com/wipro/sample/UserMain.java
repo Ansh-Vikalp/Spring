@@ -18,7 +18,7 @@ public class UserMain {
          * Delivering of Objects and its resources <values of attribues and meathod> to
          * related class is what called as DEPENDENCY Injection.
          * 
-         * Ans the context specified in bean.xml file is the main boss for managing
+         * And the context specified in bean.xml file is the main boss for managing
          * Busigness Objects and their relations even they are independent modules
          * 
          */
