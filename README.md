@@ -1,6 +1,7 @@
-# Spring
+# <img src="https://github.com/Ansh-Vikalp/Spring/assets/92860846/575b5528-4462-4a3f-a210-91e1b3ef4564" height= 100px width= 100px style="vertical-align: middle" /> Spring   
 Spring is a lightweight framework. It can be thought of as a framework of frameworks because it provides support to various frameworks such as Struts, Hibernate, Tapestry, EJB, JSF, etc.
 The Spring framework comprises several modules such as IOC, AOP, DAO, Context, ORM, WEB MVC etc.
+
 
 ## IOC Container
 The IoC container is responsible to instantiate, configure and assemble the objects. The IoC container gets informations from the XML file and works accordingly. The main tasks performed by IoC container are:
