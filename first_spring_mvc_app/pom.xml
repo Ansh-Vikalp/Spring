@@ -16,8 +16,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.release>17</maven.compiler.release>
   </properties>
 
   <dependencies>
@@ -36,32 +35,53 @@
       <scope>provided</scope>
     </dependency>
 
-    <!-- !Problem with this pom.xml file is there as new version of Spring-core, Spring-webmvc,
-        ! Spring-web 6.0.11 not support with Tomcat server 9.x also 10 so I have to degrade these
-        ! dependencies to lower version of
-        ! 4.3.25 also please ensure all these dependencies are of same version not diffrent-diffrent.
-        ! Also now my task is to find how to run latest Spring dependencies on which Tomcat Server-->
+
+    <!-- Problem with this pom.xml file is there as new version of Spring-core, Spring-webmvc,
+      Spring-web 6.0.11 not support with Tomcat server 9.x also 10 so I have to degrade these
+      dependencies to lower version of
+      4.3.25 also please ensure all these dependencies are of same version not diffrent-diffrent.
+      Also now my task is to find how to run latest Spring dependencies on which Tomcat Server
+    -->
+
+    <!-- 
+      Based on the first screenshot in your question, you're using Tomcat 9. But for Spring 6 you need a
+      minimum of Tomcat 10. Tomcat 10 is the first to use jakarta.* namespace whereas older versions
+      used javax.* namespace.
+
+      ! Spring 6 (and Spring Boot 3) is the first version to use jakarta.* namespace whereas older
+      ! versions used javax.* namespace.
+
+      So you have 2 options:
+
+      Upgrade Tomcat to a minimum of 10.
+      Or, downgrade Spring to a maximum of 5.
+      Clearly, option 1 is the recommended way to go in long term.
+
+      By the way, Spring 6 requires Java 17 not Java 1.7 as seen in the first screenshot in your
+      question. 
+    -->
 
     <!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-web</artifactId>
-      <version>4.3.25.RELEASE</version>
+      <version>5.3.28</version>
     </dependency>
 
     <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-core</artifactId>
-      <version>4.3.25.RELEASE</version>
+      <version>5.3.28</version>
     </dependency>
 
 
     <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
-      <version>4.3.25.RELEASE</version>
+      <version>5.3.28</version>
     </dependency>
 
 

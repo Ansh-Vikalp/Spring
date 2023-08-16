@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
@@ -15,8 +16,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.release>17</maven.compiler.release>
   </properties>
 
   <dependencies>
@@ -27,28 +27,46 @@
       <scope>test</scope>
     </dependency>
 
+
+    <!-- 
+      Based on the first screenshot in your question, you're using Tomcat 9. But for Spring 6 you need a
+      minimum of Tomcat 10. Tomcat 10 is the first to use jakarta.* namespace whereas older versions
+      used javax.* namespace.
+
+      ! Spring 6 (and Spring Boot 3) is the first version to use jakarta.* namespace whereas older
+      ! versions used javax.* namespace.
+
+      So you have 2 options:
+
+      Upgrade Tomcat to a minimum of 10.
+      Or, downgrade Spring to a maximum of 5.
+      Clearly, option 1 is the recommended way to go in long term.
+
+      By the way, Spring 6 requires Java 17 not Java 1.7 as seen in the first screenshot in your
+      question. 
+    -->
+
     <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
     <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-core</artifactId>
-        <version>5.2.1.RELEASE</version>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>5.3.28</version>
     </dependency>
 
 
-
-   <!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
     <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-web</artifactId>
-        <version>5.2.1.RELEASE</version>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
+      <version>5.3.28</version>
     </dependency>
 
 
-   <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
     <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-webmvc</artifactId>
-        <version>5.2.1.RELEASE</version>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>5.3.28</version>
     </dependency>
 
 
@@ -56,13 +74,15 @@
 
   <build>
     <finalName>spring_mvc_form_handeling</finalName>
-    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to
+      parent pom) -->
       <plugins>
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
           <version>3.1.0</version>
         </plugin>
-        <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
+        <!-- see
+        http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
         <plugin>
           <artifactId>maven-resources-plugin</artifactId>
           <version>3.0.2</version>

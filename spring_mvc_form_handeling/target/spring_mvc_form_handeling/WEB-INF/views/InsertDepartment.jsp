@@ -11,7 +11,7 @@
     </head>
 
     <body>
-
+        <!-- !Please note do not give any space between sp:form or sp:input anotherwise Status error 505-->
         <sp:form action="InsertDepartment" meathod="post" modelAttribute="department">
             Enter Department No:
             <sp:input path="deptno" /><br>
